@@ -49,8 +49,6 @@ int main()
     int k; //Declara��o das Vari�veis
     int m;
     int v;
-    int cont;
-    int cont2;
     int A[4][4][4];
     int Num[16];
     int Pos[16];
@@ -138,7 +136,8 @@ int main()
     }
     else
     {
-        cout << endl << "Aguardando jogada..." << endl;
+        cout << endl
+             << "Aguardando jogada..." << endl;
         Buffer.flag_rec = true;
         while (Buffer.flag_rec)
         {
@@ -165,14 +164,48 @@ int main()
                 }
                 else
                 {
-                    cout << endl << "Aguardando a vez de " << jogador2 << "..." << endl;
+                    cout << endl
+                         << "Aguardando a vez de " << jogador2 << "..." << endl;
                     Buffer.flag_rec = true;
-                    while (Buffer.flag_rec){}
+                    while (Buffer.flag_rec)
+                    {
+                    }
+                    if (Buffer.flag_res)
+                    {
+                        if (Buffer.flag_res == 1)
+                        {
+                            N = Transforma(Buffer.dado[0]);
+                            P = Transforma(Buffer.dado[1]);
+                            for (i = 3; i >= 0; i--)
+                            {
+                                A[P / 4][P % 4][i] = N % 2;
+                                N /= 2;
+                            }
+                            cout << endl;
+                            Impressao(A);
+                            cout << endl
+                                 << jogador2 << " venceu!" << endl;
+
+                            return 0;
+                        }
+                        else
+                        {
+                            P = Transforma(Buffer.dado[0]);
+                            for (i = 3; i >= 0; i--)
+                            {
+                                A[P / 4][P % 4][i] = N % 2;
+                                N /= 2;
+                            }
+                            cout << endl;
+                            Impressao(A);
+                            cout << endl
+                                 << "Jogo empatado!" << endl;
+
+                            return 0;
+                        }
+                    }
                     strcpy(Entrada, Buffer.dado.c_str());
                 }
-                
-                
-                
             }
             else
             {
@@ -183,14 +216,51 @@ int main()
                     fgets(Entrada, 48, stdin);
                     Buffer.dado = string(Entrada);
                     Buffer.flag_send = true;
-                }else
+                }
+                else
                 {
-                    cout << endl << "Aguardando a vez de " << jogador1 << "..." << endl;
+                    cout << endl
+                         << "Aguardando a vez de " << jogador1 << "..." << endl;
                     Buffer.flag_rec = true;
-                    while (Buffer.flag_rec){}
+                    while (Buffer.flag_rec)
+                    {
+                    }
+                    if (Buffer.flag_res == 1)
+                    {
+                        if (Buffer.flag_res == 1)
+                        {
+                            N = Transforma(Buffer.dado[0]);
+                            P = Transforma(Buffer.dado[1]);
+                            for (i = 3; i >= 0; i--)
+                            {
+                                A[P / 4][P % 4][i] = N % 2;
+                                N /= 2;
+                            }
+                            cout << endl;
+                            Impressao(A);
+                            cout << endl
+                                 << jogador1 << " venceu!" << endl;
+
+                            return 0;
+                        }
+                        else
+                        {
+                            P = Transforma(Buffer.dado[0]);
+                            for (i = 3; i >= 0; i--)
+                            {
+                                A[P / 4][P % 4][i] = N % 2;
+                                N /= 2;
+                            }
+                            cout << endl;
+                            Impressao(A);
+                            cout << endl
+                                 << "Jogo empatado!" << endl;
+
+                            return 0;
+                        }
+                    }
                     strcpy(Entrada, Buffer.dado.c_str());
                 }
-                
             }
 
             if (strlen(Entrada) > 3 || strlen(Entrada) < 2)
@@ -229,127 +299,39 @@ int main()
                         aux /= 2;
                     }
 
-                    for (j = 0; j < 4; j++)
+                    if (verifica(A, jogador1, jogador2, m))
                     {
-                        cont = 0;
-                        cont2 = 0;
-                        for (i = 0; i < 4; i++)
-                        { //Verificac�o diagonal1
-                            if (A[i][i][j] == 0)
-                            {
-                                cont++;
-                            }
-                            if (A[i][i][j] == 1)
-                            {
-                                cont2++;
-                            }
-                        }
-                        if (cont == 4 || cont2 == 4)
+                        if (m % 2 == 1)
                         {
+                            char pos[2], num[2];
+                            pos[1] = '\0';
+                            num[1] = '\0';
+                            num[0] = Converte(N);
+                            pos[0] = Converte(P);
+
                             Impressao(A);
-                            if (m % 2 == 0)
+                            cout << "Parabens " << jogador2 << ", voce ganhou!" << endl;
+                            Buffer.dado = string("vitoria") + string(num) + string(pos);
+                            Buffer.flag_send = true;
+                            while (Buffer.flag_send)
                             {
-                                printf("\n%s ganhou!\n", jogador1);
-                            }
-                            else
-                            {
-                                printf("\n%s ganhou!\n", jogador2);
                             }
                             return 0;
                         }
-                    }
-
-                    for (i = 0; i < 4; i++)
-                    {
-                        for (k = 0; k < 4; k++)
+                        else
                         {
-                            cont = 0;
-                            cont2 = 0;
-                            for (j = 0; j < 4; j++)
-                            {
-                                if (A[i][j][k] == 0)
-                                {
-                                    cont++;
-                                } //Verificacao horizontal
-                                if (A[i][j][k] == 1)
-                                {
-                                    cont2++;
-                                }
-                            }
-                            if (cont == 4 || cont2 == 4)
-                            {
-                                Impressao(A);
-                                if (m % 2 == 0)
-                                {
-                                    printf("\n%s ganhou!\n", jogador1);
-                                }
-                                else
-                                {
-                                    printf("\n%s ganhou!\n", jogador2);
-                                }
-                                return 0;
-                            }
-                        }
-                    }
+                            char pos[2], num[2];
+                            pos[1] = '\0';
+                            num[1] = '\0';
+                            num[0] = Converte(N);
+                            pos[0] = Converte(P);
 
-                    for (j = 0; j < 4; j++)
-                    {
-                        for (k = 0; k < 4; k++)
-                        {
-                            cont = 0;
-                            cont2 = 0;
-                            for (i = 0; i < 4; i++)
-                            {
-                                if (A[i][j][k] == 0)
-                                {
-                                    cont++;
-                                } //Verificacao vertical
-                                if (A[i][j][k] == 1)
-                                {
-                                    cont2++;
-                                }
-                            }
-                            if (cont == 4 || cont2 == 4)
-                            {
-                                Impressao(A);
-                                if (m % 2 == 0)
-                                {
-                                    printf("\n%s ganhou!\n", jogador1);
-                                }
-                                else
-                                {
-                                    printf("\n%s ganhou!\n", jogador2);
-                                }
-                                return 0;
-                            }
-                        }
-                    }
-
-                    for (k = 0; k < 4; k++)
-                    {
-                        cont = 0;
-                        cont2 = 0;
-                        for (i = 0, j = 3; i < 4; i++, j--)
-                        { //Verificac�o diagonal2
-                            if (A[i][j][k] == 0)
-                            {
-                                cont++;
-                            }
-                            if (A[i][j][k] == 1)
-                            {
-                                cont2++;
-                            }
-                        }
-                        if (cont == 4 || cont2 == 4)
-                        {
                             Impressao(A);
-                            if (m % 2 == 0)
+                            cout << "Parabens " << jogador1 << ", voce ganhou!" << endl;
+                            Buffer.dado = string("vitoria") + string(num) + string(pos);
+                            Buffer.flag_send = true;
+                            while (Buffer.flag_send)
                             {
-                                printf("\n%s ganhou!\n", jogador1);
-                            }
-                            else
-                            {
-                                printf("\n%s ganhou!\n", jogador2);
                             }
                             return 0;
                         }
@@ -399,5 +381,17 @@ int main()
         Impressao(A);
     }
 
-    cout << endl << "O jogo empatou!" << endl;
+    char pos[2];
+    pos[1] = '\0';
+    pos[0] = Converte(P);
+
+    cout << endl
+         << "Jogo empatado!" << endl;
+    Buffer.dado = string("empate") + string(pos);
+    Buffer.flag_send = true;
+    while (Buffer.flag_send)
+    {
+    }
+
+    return 0;
 }

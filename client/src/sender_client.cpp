@@ -5,15 +5,16 @@
 #include <iostream>
 #include <string>
 #include <thread>
+#include "header.h"
 using namespace std;
 
-void sender_client(int client){
+void sender_client(int client, buffer & Buffer){
    
     while(true)
     {
-        string sendMessage;
-        getline(std::cin, sendMessage);
-        send(client , sendMessage.c_str() , sendMessage.length() , 0 ); 
+        while(!Buffer.flag_send){}
+        send(client , Buffer.dado.c_str() , Buffer.dado.length() , 0 ); 
+        Buffer.flag_send = false;
     }
 
 }

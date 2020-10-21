@@ -8,13 +8,17 @@
 #include "header.h"
 using namespace std;
 
-void sender_client(int client, buffer & Buffer){
-   
-    while(true)
+//Thread responsável por gerir o envio de
+//informações do cliente para o server
+void sender_client(int client, buffer &Buffer)
+{
+
+    while (true)
     {
-        while(!Buffer.flag_send){}
-        send(client , Buffer.dado.c_str() , Buffer.dado.length() , 0 ); 
+        while (!Buffer.flag_send)
+        {
+        }
+        send(client, Buffer.dado.c_str(), Buffer.dado.length(), 0);
         Buffer.flag_send = false;
     }
-
 }

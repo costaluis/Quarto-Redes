@@ -10,8 +10,11 @@
 #include "header.h"
 #include <bits/stdc++.h>
 
+//Função principal responsável pela execução
+//do servidor do Quarto
 int main()
 {
+    //Criação de socket e conexão
     struct sockaddr_in addr;
 
     std::vector<int> clientes;
@@ -45,6 +48,7 @@ int main()
     int new_client;
     char entrada[50];
 
+    //For que aceita os clientes e cria as threads de cada um
     for (int i = 0; i < 2; i++)
     {
         new_client = accept(meu_socket, 0, 0);
@@ -56,7 +60,7 @@ int main()
 
         clientes.push_back(new_client);
 
-        entrada[0] = i+1;
+        entrada[0] = i + 1;
         entrada[1] = '\0';
         send(new_client, entrada, strlen(entrada), 0);
 
@@ -65,12 +69,14 @@ int main()
         std::thread Server_Thread(server_function, &clientes, i, new_client);
         Server_Thread.detach();
 
-        
-
         std::cout << "Conectado Cliente: " << i << std::endl;
     }
 
-    while(true){}
+    //While que mantém o programa rodando
+    //enquanto as threads executam as comunicações
+    while (true)
+    {
+    }
 
     return 0;
 }

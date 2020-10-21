@@ -5,7 +5,9 @@
 #include <vector>
 #include <sys/socket.h>
 
-void server_function(std::vector<int> * clientes, int indice, int client)
+//Thread responsável por gerir o repassamento
+//de informações entre os clientes pelo server
+void server_function(std::vector<int> *clientes, int indice, int client)
 {
     char entrada[50];
     int leitura;

@@ -4,7 +4,7 @@
 #ifndef MYHEADER
 #define MYHEADER
 
-
+//Construtor da classe buffer
 class buffer
 {
 private:
@@ -18,9 +18,10 @@ public:
     ~buffer();
 };
 
-void receiver_client(int client, buffer & Buffer);
+//Declaração das funções
+void receiver_client(int client, buffer &Buffer);
 
-void sender_client(int client, buffer & Buffer);
+void sender_client(int client, buffer &Buffer);
 
 int Transforma(char X);
 
@@ -31,6 +32,5 @@ void Impressao(int A[4][4][4]);
 bool verifica(int A[4][4][4], char jogador1[15], char jogador2[15], int m);
 
 char Converte(char a);
-
 
 #endif

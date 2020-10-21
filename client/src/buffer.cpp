@@ -1,6 +1,6 @@
 #include "header.h"
 
-
+//Instâncias da classe buffer
 buffer::buffer(/* args */)
 {
     this->flag_rec = false;

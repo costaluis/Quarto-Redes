@@ -1,5 +1,7 @@
 #include <iostream>
 
+//Função que converte um caracter hexadecimal
+//para o equivalente inteiro
 int Transforma(char X)
 {
     if (X >= 'a' && X <= 'f')
@@ -17,6 +19,7 @@ int Transforma(char X)
     return (X);
 }
 
+//Função que recupera tabela caso ocorra inserção errada
 void Recupera(int A, int B[4][4][4], int C[], int D)
 {
     int i;
@@ -27,6 +30,8 @@ void Recupera(int A, int B[4][4][4], int C[], int D)
     C[D - 1] = 20;
 }
 
+//Função responsável por plotar o tabuleiro
+//do jogo no terminal
 void Impressao(int A[4][4][4])
 {
     int i, j, k;
@@ -56,6 +61,10 @@ void Impressao(int A[4][4][4])
     printf("\n");
 }
 
+//Essa função executa verificações para decidir se alguém
+//já venceu o jogo ou não.
+//Retorna true no caso o jogo tenha terminado e false caso
+//ainda deva continuar
 bool verifica(int A[4][4][4], char jogador1[15], char jogador2[15], int m)
 {
     int cont;
@@ -68,7 +77,7 @@ bool verifica(int A[4][4][4], char jogador1[15], char jogador2[15], int m)
         cont = 0;
         cont2 = 0;
         for (i = 0; i < 4; i++)
-        { //Verificac�o diagonal1
+        { //Verificação diagonal 1
             if (A[i][i][j] == 0)
             {
                 cont++;
@@ -137,7 +146,7 @@ bool verifica(int A[4][4][4], char jogador1[15], char jogador2[15], int m)
         cont = 0;
         cont2 = 0;
         for (i = 0, j = 3; i < 4; i++, j--)
-        { //Verificac�o diagonal2
+        { //Verificação diagonal 2
             if (A[i][j][k] == 0)
             {
                 cont++;
@@ -156,14 +165,16 @@ bool verifica(int A[4][4][4], char jogador1[15], char jogador2[15], int m)
     return false;
 }
 
+//Função responsável por converter um
+//caracter inteiro para seu equivalente hexadecimal
 char Converte(char a)
 {
     if (a > 9)
     {
-        return(a + 'a');
+        return (a + 'a');
     }
     else
     {
-        return(a + '0');
+        return (a + '0');
     }
 }

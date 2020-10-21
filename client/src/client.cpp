@@ -9,8 +9,12 @@
 #include "header.h"
 using namespace std;
 
+//Função principal do programa cliente
+//a qual conecta com o servidor e executa
+//o jogo Quarto
 int main()
 {
+    //Declaração de Socket e realização de conexões
     int meu_socket;
     struct sockaddr_in addr;
 
@@ -35,6 +39,7 @@ int main()
 
     cout << "Conectado!" << endl;
 
+    //Declaração de variáveis
     char entrada[50];
     int posicao;
     string msg;
@@ -46,7 +51,7 @@ int main()
     int Z;
     int j;
     int aux;
-    int k; //Declara��o das Vari�veis
+    int k;
     int m;
     int v;
     int A[4][4][4];
@@ -104,6 +109,7 @@ int main()
         }
     }
 
+    //Threads instânciadas
     thread ClientReceiverThread(receiver_client, meu_socket, ref(Buffer));
     thread ClienteSenderThread(sender_client, meu_socket, ref(Buffer));
     ClientReceiverThread.detach();
@@ -147,6 +153,7 @@ int main()
         N = Transforma(Entrada[0]);
     }
 
+    //for principal, dentro do qual o jogo é executado
     for (m = 1; m < 17; m++)
     {
 

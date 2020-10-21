@@ -74,7 +74,7 @@ int main()
         int leitura = read(meu_socket, entrada, 50);
         entrada[leitura] = '\0';
         strcpy(jogador2, entrada);
-        cout << "Seu oponente se chama: " << entrada << endl;
+        cout << endl << "Seu oponente se chama: " << entrada << endl;
     }
     else
     {
@@ -82,7 +82,7 @@ int main()
         int leitura = read(meu_socket, entrada, 50);
         entrada[leitura] = '\0';
         strcpy(jogador1, entrada);
-        cout << "Seu oponente se chama: " << entrada << endl;
+        cout << endl << "Seu oponente se chama: " << entrada << endl;
         cout << "Jogador 2, digite seu nome: ";
         getline(std::cin, msg);
         send(meu_socket, msg.c_str(), msg.length(), 0);
@@ -143,7 +143,7 @@ int main()
     else
     {
         cout << endl
-             << "Aguardando jogada..." << endl;
+            << "Aguardando a vez de " << jogador1 << "..." << endl;
         Buffer.flag_rec = true;
         while (Buffer.flag_rec)
         {
@@ -232,7 +232,7 @@ int main()
                     while (Buffer.flag_rec)
                     {
                     }
-                    if (Buffer.flag_res == 1)
+                    if (Buffer.flag_res)
                     {
                         if (Buffer.flag_res == 1)
                         {
@@ -317,7 +317,7 @@ int main()
                             pos[0] = Converte(P);
 
                             Impressao(A);
-                            cout << "Parabens " << jogador2 << ", voce ganhou!" << endl;
+                            cout << endl << "Parabens " << jogador2 << ", voce ganhou!" << endl;
                             Buffer.dado = string("vitoria") + string(num) + string(pos);
                             Buffer.flag_send = true;
                             while (Buffer.flag_send)
@@ -328,13 +328,13 @@ int main()
                         else
                         {
                             char pos[2], num[2];
-                            pos[1] = '\0';
-                            num[1] = '\0';
                             num[0] = Converte(N);
                             pos[0] = Converte(P);
+                            pos[1] = '\0';
+                            num[1] = '\0';
 
                             Impressao(A);
-                            cout << "Parabens " << jogador1 << ", voce ganhou!" << endl;
+                            cout << endl << "Parabens " << jogador1 << ", voce ganhou!" << endl;
                             Buffer.dado = string("vitoria") + string(num) + string(pos);
                             Buffer.flag_send = true;
                             while (Buffer.flag_send)

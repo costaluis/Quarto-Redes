@@ -64,9 +64,7 @@ int main()
         entrada[1] = '\0';
         send(new_client, entrada, strlen(entrada), 0);
 
-        std::cout << "Enviei" << entrada << std::endl;
-
-        std::thread Server_Thread(server_function, &clientes, i, new_client);
+        std::thread Server_Thread(server_function, std::ref(clientes), i, new_client);
         Server_Thread.detach();
 
         std::cout << "Conectado Cliente: " << i << std::endl;
@@ -76,6 +74,9 @@ int main()
     //enquanto as threads executam as comunicações
     while (true)
     {
+        if(!clientes.size()){
+            return 0;
+        }
     }
 
     return 0;

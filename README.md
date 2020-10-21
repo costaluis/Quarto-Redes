@@ -16,7 +16,8 @@
 O projeto em questão corresponde à implementação de um jogo chamado Quarto para um trabalho
 da disciplina **SSC 0641 - Redes de Computadores**. O jogo foi implementado com uma GUI em terminal
 e foi baseado no primeiro projeto de ICC que os alunos fizeram na graduação. A linguagem utilizada
-foi C++ e o código foi escrito e compilado em Linux - Ubuntu 16.04
+foi C++ e o código foi escrito e compilado em Linux - Ubuntu 16.04. A versão do compilador utilizado
+é 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12).
 
 ---
 

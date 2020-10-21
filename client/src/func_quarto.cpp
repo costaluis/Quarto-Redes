@@ -1,6 +1,6 @@
 #include <iostream>
 
-//Função que converte um caracter hexadecimal
+//Função que converte um caractere hexadecimal
 //para o equivalente inteiro
 int Transforma(char X)
 {
@@ -10,7 +10,7 @@ int Transforma(char X)
     }
     if (X >= 'A' && X <= 'F')
     {
-        X = X - 'A' + 10; //Tranforma��o de Hexa em Inteiro
+        X = X - 'A' + 10;
     }
     if (X >= '0' && X <= '9')
     {
@@ -166,7 +166,7 @@ bool verifica(int A[4][4][4], char jogador1[15], char jogador2[15], int m)
 }
 
 //Função responsável por converter um
-//caracter inteiro para seu equivalente hexadecimal
+//caractere inteiro para seu equivalente hexadecimal
 char Converte(char a)
 {
     if (a > 9)

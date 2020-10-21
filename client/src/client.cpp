@@ -109,7 +109,7 @@ int main()
         }
     }
 
-    //Threads instânciadas
+    //Threads instanciadas
     thread ClientReceiverThread(receiver_client, meu_socket, ref(Buffer));
     thread ClienteSenderThread(sender_client, meu_socket, ref(Buffer));
     ClientReceiverThread.detach();

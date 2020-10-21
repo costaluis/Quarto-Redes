@@ -6,7 +6,7 @@
 | ------------------------------- | -------- |
 | João Pedro Fidelis Belluzzo     | 10716661 |
 | Leonardo Cerce Guioto           | 10716640 |
-| Luís Fernando Costa de Oliveira | 10716532 |
+| Luis Fernando Costa de Oliveira | 10716532 |
 | Rodrigo Augusto Valeretto       | 10684792 |
 
 ---

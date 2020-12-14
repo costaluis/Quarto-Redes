@@ -15,11 +15,14 @@
 
 Para o segundo projeto da disciplina **SSC 0641 - Redes de computadores** foi requisitado
 aos discentes que realizassem uma implementação que simulasse o funcionamento da camada de enlace
-de uma rede. Dessa forma foi implementado um programa que simula o envio de uma mensagem de um computador
+de uma rede. Dessa forma, foi implementado um programa que simula o envio de uma mensagem de um computador
 para outro.<br>
 Nesse processo foram realizadas todas as conversões necessárias de forma a trabalhar com bits, além da
 implementação de protocolos para verificar a qualidade da mensagem recebida, de forma a detectar possíveis
 erros gerados pelo meio de transmissão.
+O ambiente de trabalho para escrita, compilação do código foi o sistema operacional ubuntu 20.04 LTS,
+uma distribuição de Linux. Por fim, para realizar a compilação do código foi utilizado o compilador
+g++ (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0.
 
 ---
 

@@ -19,7 +19,7 @@ de uma rede. Dessa forma, foi implementado um programa que simula o envio de uma
 para outro.<br>
 Nesse processo foram realizadas todas as conversões necessárias de forma a trabalhar com bits, além da
 implementação de protocolos para verificar a qualidade da mensagem recebida, de forma a detectar possíveis
-erros gerados pelo meio de transmissão.
+erros gerados pelo meio de transmissão.<br>
 O ambiente de trabalho para escrita, compilação do código foi o sistema operacional ubuntu 20.04 LTS,
 uma distribuição de Linux. Por fim, para realizar a compilação do código foi utilizado o compilador
 g++ (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0.
